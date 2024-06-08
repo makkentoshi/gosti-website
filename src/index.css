@@ -1,0 +1,154 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: hsl(210, 36%, 96%);
+  color: hsl(0, 0%, 0%);
+}
+
+h1,
+h2,
+h4 {
+  letter-spacing: 0.1rem;
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+h4 {
+  font-size: 0.875rem;
+  margin-top: 0.4rem;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  color: hsl(210, 22%, 49%);
+}
+
+.section {
+  width: 100vw;
+  margin: 0 auto;
+  max-width: 1170px;
+}
+
+@media screen and (min-width: 992px) {
+  .section {
+    width: 90vw;
+  }
+}
+.menu {
+  padding: 5rem 0;
+}
+.title {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.btn-container {
+  margin-bottom: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.filter-btn {
+  background: transparent;
+  border-color: transparent;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  margin: 0.2rem;
+  padding: 0.2rem 0.5rem;
+
+  cursor: pointer;
+  transition: all 0.1s linear;
+  border-radius: 0rem;
+}
+
+.active {
+  border-bottom: 0.1px solid;
+  border-color: red;
+}
+
+.section-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+  gap: 3rem 2rem;
+  justify-items: center;
+}
+
+.menu-item {
+  display: grid;
+  gap: 1rem 2rem;
+  max-width: 25rem;
+}
+
+.photo {
+  object-fit: cover;
+  height: 350px;
+  width: 100%;
+
+  border-radius: 1rem;
+  display: block;
+}
+
+.logo {
+  object-fit: cover;
+  height: auto;
+  width: 200px;
+  border-radius: 0.25rem;
+}
+
+.item-info header {
+  display: flex;
+  justify-content: space-between;
+}
+.item-info h4 {
+  margin-bottom: 0.5rem;
+}
+.price {
+  color: #000000;
+}
+.item-text {
+  margin-bottom: 0;
+  padding-top: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .menu-item {
+   
+    gap: 0 1.25rem;
+    max-width: 50rem;
+  
+  }
+  .photo {
+    height: 500px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  .section-center {
+    width: 95vw;
+    grid-template-columns: 1fr 1fr;
+  }
+  .menu-item {
+   
+  }
+  .photo {
+    height: 150px;
+  }
+}
