@@ -36,19 +36,18 @@ gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
   useEffect(() => {
-    gsap.utils.toArray(".menu-item").forEach((card) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          start: "top bottom",
-          end: "bottom top",
-          toggleActions: "play none none reverse",
-        },
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: "power1.out",
-      });
+    gsap.utils.toArray('.menu-item').forEach(item => {
+      gsap.fromTo(item, 
+        { opacity: 0, y: 50 }, 
+        { opacity: 1, y: 0, duration: 1, ease: 'power1.out', 
+          scrollTrigger: {
+            trigger: item, 
+            start: 'top bottom',
+            end: 'bottom top', 
+            toggleActions: 'play none none reverse' 
+          }
+        }
+      );
     });
   }, []);
 
