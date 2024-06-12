@@ -131,10 +131,8 @@ p {
 
 @media screen and (min-width: 768px) {
   .menu-item {
-   
     gap: 0 1.25rem;
     max-width: 50rem;
-  
   }
   .photo {
     height: 500px;
@@ -146,7 +144,6 @@ p {
     grid-template-columns: 1fr 1fr;
   }
   .menu-item {
-   
   }
   .photo {
     height: 150px;
