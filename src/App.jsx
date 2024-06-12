@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef, useLayoutEffect } from "react";
 import Menu from "./components/Menu.jsx";
 import Categories from "./components/Categories.jsx";
 import items from "./MenuData.jsx";
@@ -6,8 +6,9 @@ import logo from "./assets/gosti2.png";
 import CategoryLabel from "./components/CategoryLabel";
 import Footer from "./components/Footer.jsx";
 
-import { gsap } from "gsap";
-
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const allCategories = ["all", ...new Set(items.map((item) => item.category))];
 
@@ -33,8 +34,24 @@ const translateCategories = (categories) => {
 
 gsap.registerPlugin(ScrollTrigger);
 
-
 const App = () => {
+  useEffect(() => {
+    gsap.utils.toArray(".menu-item").forEach((card) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: "top bottom",
+          end: "bottom top",
+          toggleActions: "play none none reverse",
+        },
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power1.out",
+      });
+    });
+  }, []);
+
   const [menuItems, setMenuItems] = useState(items);
   const [activeCategory, setActiveCategory] = useState("");
 
@@ -63,11 +80,11 @@ const App = () => {
           activeCategory={activeCategory}
           filterItems={filterItems}
         />
+
         <Menu items={menuItems} />
       </section>
       <Footer></Footer>
     </main>
   );
 };
-
 export default App;
